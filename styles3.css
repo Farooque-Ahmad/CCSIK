@@ -1684,3 +1684,10 @@ a.button:hover {
   
 }
 
+
+
+@media screen and (max-width:392px) {
+  body{
+    zoom : 0.8;
+  }
+}
