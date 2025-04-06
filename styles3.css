@@ -1,0 +1,1686 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif,"Montserrat";
+    transition: all 0.4s ease;;
+}
+/* ===== Colours ===== */
+:root{
+    --body-color: #E4E9F7;
+    --nav-color: #4070F4;
+    --side-nav: #010718;
+    --text-color: #FFF;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+}
+body{
+    height: 100vh;
+    background-color: var(--body-color);
+}
+body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+}
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: var(--nav-color);
+    /* background-color: crimson; */
+    z-index: 100;
+}
+body.dark nav{
+    border: 1px solid #393838;
+}
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--nav-color);
+    /* background-color: crimson; */
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .nav-bar .sidebarOpen{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+}
+nav .nav-bar .logo a{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+}
+.menu .logo-toggle{
+    display: none;
+}
+.nav-bar .nav-links{
+    display: flex;
+    align-items: center;
+}
+.nav-bar .nav-links li{
+    margin: 0 5px;
+    list-style: none;
+}
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+}
+.nav-links li a::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.nav-links li:hover a::before{
+    opacity: 1;
+}
+.nav-bar .darkLight-searchBox{
+    display: flex;
+    align-items: center;
+}
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+.dark-light i,
+.searchToggle i{
+    position: absolute;
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events: auto;
+}
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+.searchBox{
+    position: relative;
+}
+.searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: var(--nav-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    pointer-events: auto;
+}
+.search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 12px;
+    width: 12px;
+    background-color: var(--nav-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+.search-field input{
+    height: 100%;
+    width: 100%;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--search-text);
+    background-color: var(--search-bar);
+}
+body.dark .search-field input{
+    color: var(--text-color);
+}
+.search-field i{
+    position: absolute;
+    color: var(--nav-color);
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+body.dark .search-field i{
+    color: var(--text-color);
+}
+
+
+.logo img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+label.logo{
+  color: white;
+  font-size: 20px;
+  line-height: 80px;
+  padding: 0 10px;
+  font-weight: bold;
+  display:flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+/* Hero Section */
+.hero {
+  background: url('ccsimg/school1.jpeg');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: white;  /* Light text color for readability */
+  text-align: center;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  /* Stack text vertically */
+  position: relative;
+  z-index: 1;
+}
+
+/* Add a lighter semi-transparent overlay for better text visibility */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.3);  /* Lighter white overlay with transparency */
+  z-index: -1;  /* Place it behind the text */
+}
+
+/* Heading Styling */
+.hero h2 {
+  font-size: 3rem;  /* Increase size for prominence */
+  font-weight: bold;
+  margin-bottom: 20px; /* Space between heading and paragraph */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Add shadow for text clarity */
+}
+
+/* Paragraph Styling */
+.hero p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: crimson;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 800px;  /* Limit width to prevent text from stretching too wide */
+  margin: 0 auto;  /* Center the text */
+  line-height: 1.6;  /* Improve line spacing */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);  /* Add subtle shadow to improve visibility */
+}
+
+/* Remove Button */
+.hero button {
+  display: none; /* Hide the button */
+}
+/* About Section */
+.about {
+  /* height: 100vh; */
+  background-color: #f8f9fa; /* Soft background for better contrast */
+  color: #333; /* Dark text for readability */
+  padding: 40px 20px; /* Padding for spacing */
+  box-sizing: border-box;
+}
+
+/* About1 Section for Layout */
+.about1 {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  /* flex-wrap: wrap; */
+  gap: 20px; 
+}
+
+/* Paragraph Styling */
+.about1 p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555; /* Lighter text color for better readability */
+  text-align: justify;
+  padding-left: 30px;
+  margin: 0;
+  max-width: 600px; /* Prevent paragraph from becoming too wide */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Heading Styling */
+.about h2 {
+  color: #00796b; /* Accent color for the heading */
+  font-size: 2.5rem; /* Larger font size for importance */
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center; /* Center the heading */
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+.about h2:hover {
+  color: #ff5733; /* Hover effect for color change */
+}
+
+/* Image Section Styling */
+.ccsimg img {
+  width: 100%;
+  max-width: 500px; /* Limit max width for larger screens */
+  height: auto; /* Keep image aspect ratio */
+  border-radius: 10px; /* Rounded corners for the image */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+.ccsimg img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Section Styles */
+section {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Cards */
+/* General Layout */
+.memory-cards, .event-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* gap: 2rem; */
+  padding: 2rem 1rem;
+  background-color: #f9f9f9; /* Soft background color */
+}
+
+.memory-cards.event-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* gap: 2rem; */
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  color: #333;
+  padding: 1.5rem;
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  text-align: center;
+  height: 380px;
+  width: 100%;
+  max-width: 320px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: #2e2e2e;
+  font-weight: 500;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+  padding: 0 1rem;
+  line-height: 1.5;
+  text-align: justify;
+  margin-bottom: 2rem; /* Increased bottom margin for more space below the paragraph */
+}
+
+/* Hover Effects for Card */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover img {
+  transform: scale(1.1); /* Slight zoom effect on image */
+}
+
+/* Photo Section Styling */
+.photo-section {
+  padding: 60px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+  border-top: 5px solid #ff6f61; /* Added a subtle border at the top for visual separation */
+}
+
+.photo-section h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Image Card Container */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0 auto;
+}
+
+/* Image Card Styling */
+.image-card {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keep images consistent */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects for Image Cards */
+.image-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Card Description */
+.image-card .description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Description Paragraph Styling */
+.description p {
+  margin: 20px 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #f5f5f5;
+}
+
+/* Image Hover Description Show */
+.image-card:hover .description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* video */
+/* General styles for the video section */
+.video-section {
+  padding: 60px 20px;
+  background-color: #f4f4f9; /* Soft light background for the section */
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  margin-bottom: 80px;
+}
+
+/* Heading styling */
+.video-section h2 {
+  font-size: 2.5rem;
+  color: #2a2a2a;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* Underline effect for the heading */
+.video-section h2::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background-color: #ff5733; /* A more vibrant accent color */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -12px; /* Adjusted for better alignment */
+}
+
+/* Video container for responsive alignment */
+.video-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensures 2-3 videos based on screen size */
+  justify-items: center;
+  align-items: center;
+  gap: 30px; /* Increased gap for better spacing */
+}
+
+/* Styling for video cards */
+.video-card {
+  background-color: #fff;
+  border-radius: 12px; /* More rounded corners for a softer look */
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 650px; /* Max width to control size */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* Hover effect for video cards */
+.video-card:hover {
+  transform: translateY(-10px); /* Lift the card slightly on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-radius: 15px; /* Add a smooth rounded corner on hover */
+}
+
+/* Video element inside the card */
+.video-card video {
+  width: 100%;
+  height: 350px;
+  object-fit:contain;
+  border-radius: 12px; /* Round the corners of the video */
+  transition: transform 0.3s ease;
+}
+
+/* Slight zoom effect on video when card is hovered */
+.video-card:hover video {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 10% auto;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .modal-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .modal-content textarea {
+    width: 100%;
+    height: 100px;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .modal-content button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+  
+  .modal-content button:hover {
+    background: #45a049;
+  }
+
+  /* Vanmanus section */
+  /* General styling for vanmanus-section */
+.vanmanus-section {
+  background-color: #f0f6f7;
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 1200px; /* Restrict max-width for larger screens */
+  transition: box-shadow 0.3s ease;
+}
+
+.vanmanus-section:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Slight hover effect */
+}
+
+/* Title styling */
+.vanmanus-section h2 {
+  color: #00796b;
+  margin-bottom: 25px;
+  font-size: 2.5rem; /* Adjust font size */
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Paragraph styling */
+.vanmanus-section p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 15px auto;
+  max-width: 900px; /* Max-width to control paragraph length */
+}
+
+/* Vanmanus container for text and media */
+.vanmanus {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+/* Image styling */
+.vanmanus-section img {
+  width: 100%;
+  height: 350px;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+.vanmanus-section img:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Van photo section */
+.van-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 40px;
+}
+
+/* Van video section */
+.van-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+/* Video styling */
+.vanmanus-section video {
+  width: 100%;
+  height: 350px;
+  max-width: 300px;
+  margin-top: 15px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.vanmanus-section video:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+  
+  /* Comment Section */
+.comments {
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#commentText {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comments textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comments button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comments button:hover {
+  background-color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #333;
+  color: white;
+}
+ 
+  section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    font-size: 16px;
+    margin: 0;
+}
+
+footer p a {
+    color: #ffcc00; 
+    text-decoration: none;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+footer p span {
+    font-weight: bold;
+    color: #ffcc00; 
+}
+
+/* Contact Us Section */
+#contact {
+  background-color: #f4f4f9;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px solid #ddd;
+}
+
+#contact h2 {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+#contact h3 {
+  color: #555;
+  margin-top: 30px;
+}
+
+#contact p {
+  color: #555;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+#contact a {
+  color: #ff9800;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#contact a:hover {
+  color: #e68900;
+}
+
+/* Contact Form */
+#contactForm {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#contactForm textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+#contactForm button {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#contactForm button:hover {
+  background-color: #e68900;
+}
+
+
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-content p {
+  margin: 0;
+  padding: 5px;
+}
+.socials {
+  margin: 10px 0;
+}
+.socials a {
+  margin: 0 10px;
+  display: inline-block;
+}
+.socials img {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+  transition: transform 0.3s;
+}
+.socials img:hover {
+  transform: scale(1.2);
+}
+footer button {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+footer button:hover {
+  background-color: #e68900;
+}
+
+
+
+/* Main slider container */
+
+
+/* Card content */
+.card {
+  border-radius: 20px; /* Reduced border radius */
+  background-color: #FFF;
+  width:90%; /* Reduced width to add left-right gap */
+  max-width: 420px; /* Set max width to avoid stretching */
+  height:auto; /* Adjust height based on content */
+  margin: 20px 0; /* Added margin to separate cards from top and bottom */
+}
+
+/* Image content and card content styles */
+.image-content, .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px; /* Reduced padding */
+}
+
+.image-content {
+  position: relative;
+  padding: 20px 0; /* Reduced padding */
+}
+
+/* Overlay effect */
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #4070F4;
+  border-radius: 20px 20px 0 20px; /* Reduced border radius */
+}
+
+.overlay::before,
+.overlay::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -30px; /* Reduced size */
+  height: 30px;
+  width: 30px;
+  background-color: #4070F4;
+}
+
+.overlay::after {
+  border-radius: 0 20px 0 0;
+  background-color: #FFF;
+}
+
+/* Card image styling */
+.card-image {
+  position: relative;
+  height: 120px; /* Reduced height */
+  width: 120px; /* Reduced width */
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-image .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070F4;
+}
+
+/* Name and description text */
+.name {
+  font-size: 5px; /* Reduced font size */
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px; /* Reduced margin */
+}
+
+.description {
+  font-size: 5px; /* Reduced font size */
+  color: #707070;
+  text-align: center;
+  margin-top: 6px; /* Reduced margin */
+}
+
+/* Button styling */
+.button {
+  border: none;
+  font-size: 14px; /* Reduced font size */
+  color: #FFF;
+  padding: 8px 18px; /* Reduced padding */
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 12px 0; /* Reduced margin */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.button:hover {
+  background: #265DF2;
+}
+
+/* Swiper navigation buttons */
+.swiper-navBtn {
+  color: #6E93f7;
+  transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover {
+  color: #4070F4;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 30px; /* Reduced font size */
+}
+
+/* Swiper button positioning */
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+/* Swiper pagination bullets */
+.swiper-pagination-bullet {
+  background-color: #6E93f7;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #4070F4;
+}
+
+
+
+.main {
+  height: 75vh;
+  width: 100%;
+}
+.wrapper,
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.slide {
+  overflow: hidden;
+}
+.slide::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  z-index: 10;
+}
+.slide .image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slide .image-data {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+}
+.image-data span.text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+}
+.image-data h2 {
+  font-size: 45px;
+  font-weight: 600;
+  color: #fff;
+}
+a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #333;
+  background: #fff;
+  text-decoration: none;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+}
+a.button:hover {
+  color: #fff;
+  background-color: #c87e4f;
+}
+/* swiper button css */
+.nav-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+.swiper-button-next {
+  right: 50px;
+}
+.swiper-button-prev {
+  left: 50px;
+}
+.nav-btn::before,
+.nav-btn::after {
+  font-size: 25px;
+  color: #fff;
+}
+.swiper-pagination-bullet {
+  opacity: 1;
+  height: 12px;
+  width: 12px;
+  background-color: #fff;
+  visibility: hidden;
+}
+.swiper-pagination-bullet-active {
+  border: 2px solid #fff;
+  background-color: #c87e4f;
+}
+@media (max-width: 790px) {
+  nav .nav-bar .sidebarOpen{
+      display: block;
+  }
+  .menu{
+      position: fixed;
+      height: 100%;
+      width: 320px;
+      left: -100%;
+      top: 0;
+      padding: 20px;
+      background-color: var(--side-nav);
+      z-index: 100;
+      transition: all 0.4s ease;
+  }
+  nav.active .menu{
+      left: -0%;
+  }
+  nav.active .nav-bar .navLogo a{
+      opacity: 0;
+      transition: all 0.3s ease;
+  }
+  .menu .logo-toggle{
+      display: block;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  .logo-toggle .siderbarClose{
+      color: var(--text-color);
+      font-size: 24px;
+      cursor: pointer;
+  }
+  .nav-bar .nav-links{
+      flex-direction: column;
+      padding-top: 30px;
+  }
+  .nav-links li a{
+      display: block;
+      margin-top: 20px;
+  }
+
+  nav .nav-bar{
+    margin: 20px,0;
+    padding: 0;
+  }
+  
+  nav .nav-bar .sidebarOpen{
+    font-size: 22px;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .vanmanus-section h2 {
+    font-size: 2rem;
+  }
+
+  .vanmanus-section p {
+    font-size: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .vanmanus {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .van-photo, .van-video {
+    gap: 15px;
+  }
+
+  .vanmanus-section img,
+  .vanmanus-section video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .nav-btn {
+    visibility: hidden;
+  }
+  .swiper-pagination-bullet {
+    visibility: visible;
+  }
+
+  .hero h2{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .hero{
+    height: 50vh;
+  }
+
+  .hero p{
+    font-size: 1rem;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .about1{
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+   
+  }
+  
+  .about h2{
+    font-size: 30px;
+  }
+  .about1 p{
+    font-size: 20px;
+    /* font-weight: bold; */
+    margin-bottom: 10px;
+    
+  }
+  .ccsimg img{
+    width: 100%; /* Responsive Image */
+    max-width: 500px; /* Set max size */
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .memory-cards, .event-cards {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Full width cards */
+    gap: 1.5rem; /* Kam gap takri */
+    padding: 0.5rem;
+  }
+   
+  .card {
+    width: 100%; /* Har card ka width adjust */
+    max-width: 350px; /* Maximum width */
+    height: 400px; /* Dynamic height */
+    margin: auto; /* Center align */
+  }
+
+  .card img {
+    height: 180px; /* Image ko thoda chhota karna */
+  }
+
+  .card-container {
+    
+    
+    grid-template-columns: repeat(2, minmax(150px, 1fr)); /* 2 Cards ek saath */
+    gap: 15px;
+    justify-content: center; /* Center alignment */
+    align-items: center; /* Center vertically */
+    padding: 0 10px; /* Thoda padding add */
+  }
+
+  .image-card {
+    width: 350px; /* Grid ke andar adjust hoga */
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto; /* Center align properly */
+  }
+
+  .image-card img {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .image-card .description {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .video-section h2 {
+    font-size: 2rem;
+  }
+
+  .video-card {
+    max-width: 100%;
+  }
+
+  .video-description h3 {
+    font-size: 1.4rem;
+  }
+
+  .video-section h2 {
+    font-size: 2rem;
+  }
+
+  .video-container {
+    gap: 20px; /* Slightly reduced gap for smaller screens */
+  }
+
+  .video-card {
+    width: 90%;
+    max-width: 500px; /* Adjust max-width for smaller screens */
+  }
+
+  .about1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Add more gap on smaller screens */
+  }
+
+  .about1 p {
+    padding-left: 0;
+    max-width: 90%; /* Allow more width for text */
+    font-size: 1rem; /* Adjust font size for mobile */
+  }
+
+  .ccsimg img {
+    max-width: 90%; /* Adjust image width */
+  }
+
+  .memory-cards, .event-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .image-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero h2{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .hero{
+    height: 50vh;
+  }
+
+  .hero p{
+    font-size: 1rem;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .about1{
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+   
+  }
+  
+  .about h2{
+    font-size: 30px;
+  }
+  .about1 p{
+    font-size: 20px;
+    /* font-weight: bold; */
+    margin-bottom: 10px;
+    
+  }
+
+  .ccsimg img{
+    width: 100%; /* Responsive Image */
+    max-width: 500px; /* Set max size */
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .memory-cards, .event-cards {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Full width cards */
+    gap: 1.5rem; /* Kam gap takri */
+    padding: 0.5rem;
+  }
+   
+  .card {
+    width: 100%; /* Har card ka width adjust */
+    max-width: 350px; /* Maximum width */
+    height: 400px; /* Dynamic height */
+    margin: auto; /* Center align */
+  }
+
+  .card img {
+    height: 180px; /* Image ko thoda chhota karna */
+  }
+
+  .card-container {
+    
+    
+    grid-template-columns: repeat(2, minmax(150px, 1fr)); /* 2 Cards ek saath */
+    gap: 15px;
+    justify-content: center; /* Center alignment */
+    align-items: center; /* Center vertically */
+    padding: 0 10px; /* Thoda padding add */
+  }
+
+  .image-card {
+    width: 350px; /* Grid ke andar adjust hoga */
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto; /* Center align properly */
+  }
+
+  .image-card img {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .image-card .description {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .video-section h2 {
+    font-size: 2rem;
+  }
+
+  .video-card {
+    max-width: 100%;
+  }
+
+  .video-description h3 {
+    font-size: 1.4rem;
+  }
+
+  .hero h2 {
+    font-size: 2.2rem;  /* Adjust heading size for smaller screens */
+  }
+
+  .hero p {
+    font-size: 1.2rem;  /* Adjust paragraph font size for readability */
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media screen and(max-width: 480px){
+
+  .vanmanus-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .vanmanus-section p {
+    font-size: 0.95rem;
+  }
+
+   .video-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .video-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .memory-cards, .event-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-section h2 {
+    font-size: 2rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .image-card {
+    width: 100%;
+    height: 250px;
+  }
+  .hero h2 {
+    font-size: 1.8rem;  /* Smaller font for very small screens */
+  }
+
+  .hero p {
+    font-size: 1rem;  /* Adjust paragraph font size for very small screens */
+  }
+
+  .about h2 {
+    font-size: 1.8rem; /* Smaller font size on very small screens */
+  }
+
+  .about1 p {
+    font-size: 0.9rem; /* Decrease text size slightly */
+  }
+  
+}
+
+@media screen and (max-width: 400px) 
+{
+  .main {
+    height: 45vh;
+    width: 100%;
+  }
+
+  .nav-btn {
+    visibility: visible;
+  }
+
+  .slider2 {
+    padding: 40px 10px; /* Less padding for small screens */
+  }
+
+  .slide-container {
+    padding: 20px; /* Less padding for smaller screens */
+  }
+
+  .slide-content {
+    margin: 0 10px;
+  }
+
+  .swiper-navBtn {
+    display: none;
+  }
+
+  .card-image {
+    height: 100px; /* Reduced height for mobile */
+    width: 100px; /* Reduced width for mobile */
+  }
+
+  .name {
+    font-size: 16px; /* Reduced font size for mobile */
+  }
+
+  .description {
+    font-size: 12px; /* Reduced font size for mobile */
+  }
+
+  .hero p{
+    font-size: 1rem;
+    line-height: 30px;
+    text-align: justify;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .hero h2{
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .hero{
+    height: 90vh;
+  }
+
+
+  .about1 p{
+    text-align: justify;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .about h2{
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: crimson;
+    color: white;
+    color: black;
+  }
+
+  .ccsimg img{
+    height: 330px;
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .vanmanus-section h2{
+    font-size: 1.2rem;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+
+  .vanmanus-section p{
+    font-size: 1rem;
+    text-align: justify;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+ .comments h2{
+  font-size: 1.2rem;
+  text-align: center;
+ }
+
+  
+}
+
